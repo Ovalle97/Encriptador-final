@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --color-primario: #D9D9D9;
+    --color-secundario: white;
+    --color-terciario: #0f3058;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--color-primario);
+    height: 100vh;
+}
+* {
+    margin: 0%;
+    text-decoration: none;
+}
+/*------------------------------------------------------------------------------------------*/
+.main {
+    margin: 2% 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+}
+/*------------------------------------------------------------------------------------------*/
+
+.container1 {
+    margin-left: 10%;
+    height: 90vh;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2%;
+}
+
+.area-texto {
+    color: var(--color-terciario);
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    background-color: var(--color-primario);
+    border: none;
+    font-size: 1.5rem;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.area-texto:focus {
+    border: none;
+    outline: none;
+}
+
+.seccion-botones {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.boton {
+    margin-bottom: 6%;
+    font-family: "Montserrat", sans-serif;
+    width: 47%;
+    padding: 2% 6%;
+    border: 1px solid var(--color-terciario);
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#cifrar-boton {
+    background-color: var(--color-terciario);
+    color: white;
+}
+
+#decifrar-boton {
+    background-color: var(--color-primario);
+    color: var(--color-terciario);
+}
+
+#cifrar-boton:hover {
+    background-color: #184275;
+    color: white;
+}
+
+#decifrar-boton:hover {
+    background-color: rgb(235, 231, 231);
+    color: var(--color-terciario);
+}
+
+
+small {
+    font-size: 1rem;
+    color: gray;
+}
+/*----------------------------------------------------------------------------------------------------------------*/
+.container2 {
+    background-color: var(--color-secundario);
+    height: 90vh;
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 32px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.imagen-mensaje {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.mensaje-container{
+    width: auto;
+    margin: 0% 6%;
+}
+.titulo{
+    margin: 6% 0%;
+    font-size: 1.5rem;
+}
+.parrafo{
+    font-size: 1rem;
+}
+
+footer {
+    padding: 5px;
+    bottom: 0px;
+    position: fixed;
+    align-content: end;
+    color: rgb(69, 69, 69);
+    font-size: small;
+
+}
