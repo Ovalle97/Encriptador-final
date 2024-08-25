@@ -1,74 +1,74 @@
 // Función para encriptar el texto
-function encryptText(text) {
-    let encryptedText = '';
+function encriptarTexto(text) {
+    let textoEncriptado = '';
     for (let char of text) {
         if (char >= 'a' && char <= 'z') {
-            encryptedText += String.fromCharCode(((char.charCodeAt(0) - 97 + 1) % 26) + 97);
+            textoEncriptado += String.fromCharCode(((char.charCodeAt(0) - 97 + 1) % 26) + 97);
         } else if (char >= 'A' && char <= 'Z') {
-            encryptedText += String.fromCharCode(((char.charCodeAt(0) - 65 + 1) % 26) + 65);
+            textoEncriptado += String.fromCharCode(((char.charCodeAt(0) - 65 + 1) % 26) + 65);
         } else {
-            encryptedText += char; // Dejar caracteres que no son letras sin cambios
+            textoEncriptado += char; // Se agregan los caracteres que no son letras sin cambios
         }
     }
-    return encryptedText;
+    return textoEncriptado;
 }
 
 // Función para desencriptar el texto
-function decryptText(text) {
-    let decryptedText = '';
+function descencriptarTexto(text) {
+    let textoDesencriptado = '';
     for (let char of text) {
         if (char >= 'a' && char <= 'z') {
-            decryptedText += String.fromCharCode(((char.charCodeAt(0) - 97 - 1 + 26) % 26) + 97);
+            textoDesencriptado += String.fromCharCode(((char.charCodeAt(0) - 97 - 1 + 26) % 26) + 97);
         } else if (char >= 'A' && char <= 'Z') {
-            decryptedText += String.fromCharCode(((char.charCodeAt(0) - 65 - 1 + 26) % 26) + 65);
+            textoDesencriptado += String.fromCharCode(((char.charCodeAt(0) - 65 - 1 + 26) % 26) + 65);
         } else {
-            decryptedText += char; // Dejar caracteres que no son letras sin cambios
+            textoDesencriptado += char; // Dejar caracteres que no son letras sin cambios
         }
     }
-    return decryptedText;
+    return textoDesencriptado;
 }
 
 // Manejar el clic en el botón de encriptar
-document.getElementById('encrypt-btn').addEventListener('click', function() {
-    let inputText = document.querySelector('textarea').value;
-    let encryptedText = encryptText(inputText);
+document.getElementById('cifrar-boton').addEventListener('click', function () {
+    let inputTexto = document.querySelector('textarea').value;
+    let textoEncriptado = encriptarTexto(inputTexto);
     document.querySelector('textarea').value = ''; // Limpiar el área de texto
-    updateMessageDisplay(encryptedText);
+    actualizarContainer2(textoEncriptado);
 });
 
 // Manejar el clic en el botón de desencriptar
-document.getElementById('decrypt-btn').addEventListener('click', function() {
-    let inputText = document.querySelector('textarea').value;
-    let decryptedText = decryptText(inputText);
+document.getElementById('descifrar-boton').addEventListener('click', function () {
+    let inputTexto = document.querySelector('textarea').value;
+    let textoDescencriptado = descencriptarTexto(inputTexto);
     document.querySelector('textarea').value = ''; // Limpiar el área de texto
-    updateMessageDisplay(decryptedText);
+    actualizarContainer2(textoDescencriptado);
 });
 
 // Actualizar la visualización del mensaje y agregar botón de copiar
-function updateMessageDisplay(text) {
-    const messageDisplay = document.querySelector('.container2');
-    messageDisplay.innerHTML = ''; // Limpiar contenido previo
+function actualizarContainer2(text) {
+    const container2 = document.querySelector('.container2');
+    container2.innerHTML = ''; // Limpiar contenido previo
 
     if (text.trim() === '') {
-        messageDisplay.innerHTML = `
-            <img src="img/img1.jpg" alt="Ningún mensaje fue encontrado">
-            <p class="titulo-container"><b>Ningún mensaje fue encontrado</b></p>
-            <p>Ingresa el texto que desees encriptar o desencriptar.</p>
+        container2.innerHTML = `
+            <img class="imagen-mensaje" src="img/Muñeco.png" alt="Ningún mensaje fue encontrado">
+            <section class="mensaje-container">
+                <h1 class="titulo"><b>Ningún mensaje fue encontrado</b></h1>
+                <p class="parrafo">Ingresa el texto que desees encriptar o desencriptar.</p>
+            </section>
         `;
     } else {
-        const textElement = document.createElement('p');
-        textElement.textContent = text;
-        const copyButton = document.createElement('button');
-        copyButton.textContent = 'Copiar';
-        copyButton.addEventListener('click', function() {
-            copyToClipboard(text);
+        container2.innerHTML = `
+                <p class="parrafoResultado">${text}</p>
+                <button class="boton" id="copiar-boton">Copiar</button>
+        `;
+        document.getElementById('copiar-boton').addEventListener('click', function () {
+            copiarTexto(text);
         });
-        messageDisplay.appendChild(textElement);
-        messageDisplay.appendChild(copyButton);
     }
 }
 
 // Función para copiar el texto encriptado al portapapeles
-function copyToClipboard(text) {
+function copiarTexto(text) {
     navigator.clipboard.writeText(text);
 }

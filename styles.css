@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root{
-    --color-primario: #D9D9D9;
+    --color-primario: #E9ECF8;
     --color-secundario: white;
-    --color-terciario: #0f3058;
+    --color-terciario: #0A3871;
 }
 
 body {
@@ -17,16 +17,19 @@ body {
 }
 /*------------------------------------------------------------------------------------------*/
 .main {
-    margin: 2% 2%;
+    margin: 4vh;
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 5%;
+    box-sizing: border-box;
 }
 /*------------------------------------------------------------------------------------------*/
+.logo{
+    width: 3vh;
+    height: 4vh;
 
+}
 .container1 {
-    margin-left: 10%;
     height: 90vh;
     width: 60%;
     display: flex;
@@ -36,12 +39,13 @@ body {
 }
 
 .area-texto {
+    margin-top: 7vh;
     color: var(--color-terciario);
     font-family: "Montserrat", sans-serif;
     text-decoration: none;
     background-color: var(--color-primario);
     border: none;
-    font-size: 1.5rem;
+    font-size: 4vh;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -52,6 +56,10 @@ body {
     outline: none;
 }
 
+::placeholder{
+    text-decoration: none;
+    color: var(--color-terciario);
+}
 .seccion-botones {
     width: 100%;
     display: flex;
@@ -59,10 +67,9 @@ body {
 }
 
 .boton {
-    margin-bottom: 6%;
+    margin-bottom: 3vh;
     font-family: "Montserrat", sans-serif;
-    width: 47%;
-    padding: 2% 6%;
+    padding: 2vh;
     border: 1px solid var(--color-terciario);
     border-radius: 24px;
     cursor: pointer;
@@ -72,25 +79,47 @@ body {
 }
 
 #cifrar-boton {
+    width: 48%;
     background-color: var(--color-terciario);
-    color: white;
+    color: var(--color-primario);
 }
 
-#decifrar-boton {
+
+
+#descifrar-boton {
+    width: 48%;
     background-color: var(--color-primario);
     color: var(--color-terciario);
 }
 
-#cifrar-boton:hover {
-    background-color: #184275;
-    color: white;
+#copiar-boton{
+    background-color: var(--color-secundario);
+    width: 90%;
 }
 
-#decifrar-boton:hover {
-    background-color: rgb(235, 231, 231);
+#cifrar-boton:hover {
+    background-color: #1256aa;
+    color: var(--color-primario);
+}
+
+#descifrar-boton:hover {
+    background-color: rgb(224, 224, 224);
     color: var(--color-terciario);
 }
 
+/*Container 2 Actualizado------------------------------------------------------------------------------------------*/
+
+.parrafoResultado{
+    text-align: left;
+    margin: 10%;
+    width: auto;
+    height: 90vh;
+    font-size: 3vh;
+}
+
+#copiar-boton:hover{
+    background-color: rgb(224, 224, 224);;
+}
 
 small {
     font-size: 1rem;
@@ -105,26 +134,28 @@ small {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
     border-radius: 32px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .imagen-mensaje {
-    width: 50%;
+    width: auto;
     margin-bottom: 20px;
 }
 
 .mensaje-container{
+    text-align: center;
     width: auto;
     margin: 0% 6%;
 }
 .titulo{
-    margin: 6% 0%;
+    margin: 1vh;
     font-size: 1.5rem;
 }
-.parrafo{
-    font-size: 1rem;
+p{
+    margin: 1vh;
+    font-size: 2vh;
 }
 
 footer {
@@ -132,7 +163,45 @@ footer {
     bottom: 0px;
     position: fixed;
     align-content: end;
-    color: rgb(69, 69, 69);
-    font-size: small;
+    color: rgb(119, 119, 119);
+    font-size: 2vh;
+
+}
+
+@media (max-width:1000px){
+    .main{
+        flex-direction: column;
+    }
+    .container1{
+        width: auto;
+        height: 80vh;
+    }
+
+    .container2{
+        width: auto;
+        height: auto;
+    }
+
+    .imagen-mensaje{
+        display: none;
+    }
+
+    .parrafoResultado{
+        height: auto;
+    }
+
+    footer{
+        display: none;
+    }
+}
+
+@media (max-width:600px) {
+    .seccion-botones{
+        flex-direction: column;
+    }
+    
+    #cifrar-boton, #descifrar-boton{
+        width: 100%;
+    }
 
 }
